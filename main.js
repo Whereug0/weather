@@ -5,6 +5,8 @@ const apiUrl = `https://api.weatherapi.com/v1/current.json?`
 const form = document.querySelector('.int')
 const ent = document.querySelector('.enter-name')
 const list = document.querySelector('.wither-list')
+const noFound = document.querySelector(".no-found")
+
 
 
 form.addEventListener('submit', (e) => {
@@ -20,6 +22,8 @@ async function checkWeather(searcbValue) {
     try {
     
     const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${searcbValue}`);
+    
+    if (response.ok) {
     const data = await response.json();
     console.log(data, "data");
 
@@ -29,7 +33,7 @@ async function checkWeather(searcbValue) {
     const now = new Date(date)
     const timenow = time
     
-    const formattedDate = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+    const formattedDate = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     const a = 'https:'
     document.querySelector(".icon").src = a + (data.current.condition.icon)
     document.querySelector(".city").innerHTML = data.location.name;
@@ -42,13 +46,19 @@ async function checkWeather(searcbValue) {
     document.querySelector(".time").innerHTML = timenow
     document.querySelector(".text").innerHTML = data.current.condition.text
     enterName()
+    noFound.style.display = 'none'
+    }else {
+        console.error('Ошибка запроса:', response.status);
+        list.style.display = 'none';
+        ent.style.display = 'none';
+        noFound.style.display = 'block'
+    }
     }catch (er) {
         console.error("Ошибка", er)
-        const noFound = document.querySelector(".no-found")
-        noFound.style.display = 'block'
+        list.style.display = 'none'
         ent.style.display = 'none'
+        noFound.style.display = 'block'
     }
-    deleteEror()
 
 }
 
@@ -58,8 +68,4 @@ function enterName() {
     list.style.display = "flex"
 }
 
-function deleteEror() {
-    if (checkWeather()) {
-    const a = noFound.style.display = 'none'}
-}
 
