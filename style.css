@@ -1,0 +1,100 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    max-width: 720px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.int {
+    display: flex;
+    justify-content: center;
+    border: 20px;
+}
+
+.inputBox {
+    border: 3px solid #28688C;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.enter-name {
+    /* display: none; */
+    text-align: center;
+    background-color: #28688C;
+    padding: 20px 80px;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 1px 5px 25px 3px #444;
+}
+
+
+
+.wither-list {
+    display: none;
+    color: white;
+    background-color: #28688C;
+    padding: 20px 15px;
+    border-radius: 10px;
+    box-shadow: 1px 5px 25px 3px #444;
+    width: 100%;
+}
+
+
+.no-found {
+    text-align: center;
+    display: none;
+    background-color: #28688C;
+    padding: 10px 200px;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 1px 5px 25px 3px #444;
+}
+
+.wither-box {
+    width: 100%;
+}
+
+span {
+    display: block;
+}
+
+.info {
+    width: 33%;
+}
+
+.gradus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stata {
+    width: 50%;
+}
+
+.pogoda {
+    display: flex;
+    justify-content: center;
+}
+.char {
+    width: 20%;
+}
+
+.text {
+    display: block;
+}
